@@ -26,25 +26,21 @@ public class World {
     public int Width { get => width; }
     public int Height { get => height; }
 
-    public void RandomizeTiles()
-    {
+    public void RandomizeTiles() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 if (Random.Range(0, 2) == 0) {
                     tiles[x, y].Type = Tile.TileType.Dirt;
-                } else
-                {
+                } else {
                     tiles[x, y].Type = Tile.TileType.Floor;
                 }
             }
         }
     }
 
-    public Tile GetTileAt(int x, int y)
-    {
-        if ((x > width || x < 0) || (y > height || y < 0))
-        {
-            Debug.LogError("Tile( "+x+","+y+") is out of range");
+    public Tile GetTileAt(int x, int y) {
+        if ((x > width || x < 0) || (y > height || y < 0)) {
+            Debug.LogError("Tile( " + x + "," + y + ") is out of range");
             return null;
         }
         return tiles[x, y];
